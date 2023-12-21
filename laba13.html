@@ -1,0 +1,30 @@
+<html>
+<body>
+<input type="text" placeholder="Введите число A">
+<input type="text" placeholder="Введите модуль C">
+<input type="button" value="далее" onclick="modules()">
+<a></a>
+<script>
+function modules(){
+let a = document.querySelector('input[placeholder="Введите число A"]').value;
+let c = document.querySelector('input[placeholder="Введите модуль C"]').value;
+let result = document.getElementsByTagName('a')[0];
+let nub = (a, c) => {if(a > c) return c; else return a};
+let minnum = nub(a, c);
+
+for (let i = 2; i<=minnum; i++){
+if (a%i == 0 && c%i == 0){
+result.innerText = "Проверь ещё раз.";
+return;
+}}
+
+for (let i = 0; i<=c-1; i++){
+if (a*i > c && (a*i)%c == 1){
+result.innerText = `${a} * ${i} = ${(a*i)%c} mod(${c}) Получаем: ${i}`;
+break;
+}}
+
+}
+</script>
+</body>
+</html>
